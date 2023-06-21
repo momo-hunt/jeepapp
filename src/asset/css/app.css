@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #e6eaee;
+  --bg-2: #d1dce8;
+  --bg-3: #a2b8cc;
+  --bg-4: #5b7c99;
+  --bg-5: #273947;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0 1rem;
+}
+
+/* body > div * {
+  border: 1px solid lightcoral !important;
+} */
+
+/* a */
+a {
+  text-decoration: none;
+}
+
+a[role="button"] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 1rem;
+  background-color: var(--bg-1);
+  color: inherit;
+  border: 1px solid var(--bg-2);
+}
+
+a[role="button"].icon {
+  aspect-ratio: 1/1;
+  padding: 0;
+}
+
+a[role="button"]:hover,
+a[role="button"]:focus {
+  background-color: var(--bg-2);
+}
+
+/* ul */
+ul {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0 -1rem;
+}
+
+ul li {
+  padding: 1rem;
+  border-bottom: 1px solid var(--bg-2);
+}
+
+ul li:hover {
+  background-color: var(--bg-1);
+}
+
+/* h */
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* button */
+button {
+  cursor: pointer;
+  height: 2.5rem;
+  padding: 0 1rem;
+  background-color: var(--bg-1);
+  border: 1px solid var(--bg-2);
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+button[type="submit"] {
+  background-color: var(--bg-4);
+  color: white;
+}
+
+/* form */
+input,
+select {
+  height: 2.5rem;
+  font-size: inherit;
+  padding: 0 0.5rem;
+}
