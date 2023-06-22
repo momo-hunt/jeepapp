@@ -6,11 +6,12 @@ const stored = () => {
   return {
     subscribe,
 
-    get: async (collection, option, callback) => {
+    get: async (collection, option = null, callback) => {
       set({ ...old, [collection]: { loading: true } });
 
-      const params = new URLSearchParams(option);
-      const res = await fetch(`/api/${collection}?` + params);
+      const res = await fetch(
+        `/api/${collection}?opt=` + JSON.stringify(option)
+      );
       const respon = await res.json();
 
       old = { ...old, [collection]: { loading: false, ...respon } };

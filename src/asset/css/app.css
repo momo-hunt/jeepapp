@@ -57,6 +57,7 @@ ul {
 }
 
 ul li {
+  position: relative;
   padding: 1rem;
   border-bottom: 1px solid var(--bg-2);
 }

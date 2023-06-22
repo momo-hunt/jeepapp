@@ -5,13 +5,22 @@
   import CoForm from "$lib/component/Co-Form.svelte";
   import ApField from "./Ap-Field.svelte";
   import CoLoader from "$lib/component/Co-Loader.svelte";
+  import { date } from "$lib/util";
 
   let collection = "rekap";
 
   // $: console.log($list?.[collection]);
+  let defaultData = {
+    tanggal_berangkat: date().defaultFormDate(),
+    jam_berangkat: date().defaultFormTime(),
+    tanggal_kembali: date().defaultFormDate(),
+    jam_kembali: date().defaultFormTime(),
+  };
 
   $: loading = $list?.[collection]?.loading;
-  $: data = $list?.[collection]?.data ? $list?.[collection]?.data[0] : null;
+  $: data = $list?.[collection]?.data
+    ? { ...defaultData, ...$list?.[collection]?.data[0] }
+    : defaultData;
 
   function onProcess() {
     goto("./");
@@ -22,11 +31,11 @@
   }
 
   onMount(() => {
-    list.get(collection);
+    // list.get(collection);
   });
 </script>
 
-<CoLoader {loading} />
+<CoLoader {loading}>Tunggu ya...</CoLoader>
 
 {#if !loading && data}
   <CoForm

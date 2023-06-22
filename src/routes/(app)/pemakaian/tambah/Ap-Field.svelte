@@ -3,19 +3,21 @@
 
   let km = {
     awal: data?.["km_terakhir"],
-    akhir: data?.["km_terakhir"],
-    pemakaian: null,
+    akhir: null,
   };
-  km.pemakaian = km.akhir - km.awal;
+
+  // $: console.log("data field", data);
+
+  $: pemakaian = km.akhir - km.awal;
 </script>
 
 <div class="form">
   <article>
-    <label for="sopir">Sopir</label>
+    <label for="sopir_id">Sopir</label>
     <select
-      name="sopir"
-      id="sopir"
-      value={data?.["sopir"] ?? "b7085af5-3511-4930-8d45-27f644a6f3a4"}
+      name="sopir_id"
+      id="sopir_id"
+      value={data?.["sopir_id"] ?? "b7085af5-3511-4930-8d45-27f644a6f3a4"}
     >
       <option value="b7085af5-3511-4930-8d45-27f644a6f3a4">Santoso</option>
     </select>
@@ -27,13 +29,18 @@
       type="text"
       name="tujuan"
       id="tujuan"
-      value={data?.["sopir"] ?? ""}
+      value={data?.["tujuan"] ?? ""}
     />
   </article>
 
   <article>
     <label for="keperluan">Keperluan</label>
-    <input type="text" name="keperluan" id="keperluan" />
+    <input
+      type="text"
+      name="keperluan"
+      id="keperluan"
+      value={data?.["keperluan"] ?? ""}
+    />
   </article>
 
   <article>
@@ -41,11 +48,21 @@
     <div class="row">
       <article>
         <label for="tanggal_berangkat">Tanggal</label>
-        <input type="date" name="tanggal_berangkat" id="tanggal_berangkat" />
+        <input
+          type="date"
+          name="tanggal_berangkat"
+          id="tanggal_berangkat"
+          value={data?.["tanggal_berangkat"] ?? ""}
+        />
       </article>
       <article>
         <label for="jam_berangkat">Jam</label>
-        <input type="time" name="jam_berangkat" id="jam_berangkat" />
+        <input
+          type="time"
+          name="jam_berangkat"
+          id="jam_berangkat"
+          value={data?.["jam_berangkat"] ?? ""}
+        />
       </article>
     </div>
   </article>
@@ -55,11 +72,21 @@
     <div class="row">
       <article>
         <label for="tanggal_kembali">Tanggal</label>
-        <input type="date" name="tanggal_kembali" id="tanggal_kembali" />
+        <input
+          type="date"
+          name="tanggal_kembali"
+          id="tanggal_kembali"
+          value={data?.["tanggal_kembali"] ?? ""}
+        />
       </article>
       <article>
         <label for="jam_kembali">Jam</label>
-        <input type="time" name="jam_kembali" id="jam_kembali" />
+        <input
+          type="time"
+          name="jam_kembali"
+          id="jam_kembali"
+          value={data?.["jam_kembali"] ?? ""}
+        />
       </article>
     </div>
   </article>
@@ -78,6 +105,7 @@
           name="km_akhir"
           id="km_akhir"
           bind:value={km.akhir}
+          min={km.awal + 1}
         />
       </article>
     </div>
@@ -89,7 +117,9 @@
       type="number"
       name="km_pemakaian"
       id="km_pemakaian"
-      bind:value={km.pemakaian}
+      value={pemakaian}
+      min="1"
+      readonly
     />
   </article>
 

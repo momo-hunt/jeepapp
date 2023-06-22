@@ -1,1 +1,1 @@
-export { defaultFormDate, defaultFormTime } from "./date";
+export { date } from "./date";
