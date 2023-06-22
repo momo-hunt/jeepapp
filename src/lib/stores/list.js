@@ -16,7 +16,7 @@ const stored = () => {
       old = { ...old, [collection]: { loading: false, ...respon } };
       set(old);
 
-      if (callback) callback();
+      if (callback) callback(respon);
     },
 
     add: (collection, data) => {

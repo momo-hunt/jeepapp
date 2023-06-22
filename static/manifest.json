@@ -1,0 +1,39 @@
+{
+  "short_name": "Jeep App",
+  "name": "Jeep Application",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/img/android-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/android-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tambah Pemakaian",
+      "short_name": "Tambah",
+      "description": "Form tambah pemakaian baru",
+      "url": "/pemakaian/tambah",
+      "icons": [
+        {
+          "src": "/img/android-192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#5b7c99",
+  "display": "standalone",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "description": "Web Aplikasi Manajemen Kendaraan"
+}

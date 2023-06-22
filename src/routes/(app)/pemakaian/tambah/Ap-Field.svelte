@@ -1,15 +1,23 @@
 <script>
   export let data = {};
 
-  let km = { awal: data?.["km_awal"], akhir: null, pemakaian: null };
+  let km = {
+    awal: data?.["km_terakhir"],
+    akhir: data?.["km_terakhir"],
+    pemakaian: null,
+  };
   km.pemakaian = km.akhir - km.awal;
 </script>
 
 <div class="form">
   <article>
     <label for="sopir">Sopir</label>
-    <select name="sopir" id="sopir" value={data?.["sopir"] ?? "1"}>
-      <option value="1">Santoso</option>
+    <select
+      name="sopir"
+      id="sopir"
+      value={data?.["sopir"] ?? "b7085af5-3511-4930-8d45-27f644a6f3a4"}
+    >
+      <option value="b7085af5-3511-4930-8d45-27f644a6f3a4">Santoso</option>
     </select>
   </article>
 

@@ -16,7 +16,8 @@ export const handle = async ({ event, resolve }) => {
     }
   }
 
-  const token = event.locals?.user?.token;
+  const token =
+    event.locals?.user?.token || "b8d7d16e-0dae-4983-a703-e697270e447a";
   event.locals.db = db;
   event.locals.db.setToken(token);
 
