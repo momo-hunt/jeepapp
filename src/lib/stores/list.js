@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import { toast } from "$lib/stores";
 
 const stored = () => {
   const { subscribe, set, update } = writable({});
@@ -13,6 +14,10 @@ const stored = () => {
         `/api/${collection}?opt=` + JSON.stringify(option)
       );
       const respon = await res.json();
+      if (respon?.status && respon?.status != 200) {
+        toast.error(JSON.stringify(respon));
+      }
+      console.log("respon list->", respon);
 
       old = { ...old, [collection]: { loading: false, ...respon } };
       set(old);

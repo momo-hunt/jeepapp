@@ -6,8 +6,7 @@
     {
       "src": "/img/android-512x512.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
+      "sizes": "512x512"
     },
     {
       "src": "/img/android-192x192.png",

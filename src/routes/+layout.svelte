@@ -1,5 +1,6 @@
 <script>
   import "$asset/css";
+  import CoToast from "$lib/component/Co-Toast.svelte";
 </script>
 
 <svelte:head>
@@ -7,3 +8,5 @@
 </svelte:head>
 
 <slot />
+
+<CoToast />

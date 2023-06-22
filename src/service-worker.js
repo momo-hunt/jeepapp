@@ -1,6 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 
-import { build, files, version } from "$service-self";
+import { build, files, version } from "$service-worker";
 
 const STATIC_CACHE_NAME = `cache${version}`;
 const APP_CACHE_NAME = `offline${version}`;

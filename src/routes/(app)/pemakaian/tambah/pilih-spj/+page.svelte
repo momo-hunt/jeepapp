@@ -1,12 +1,18 @@
 <script>
   import { onMount } from "svelte";
-  import { list } from "$lib/stores";
-  import CoLoader from "../../../../../lib/component/Co-Loader.svelte";
+  import { list, obj } from "$lib/stores";
+  import CoLoader from "$lib/component/Co-Loader.svelte";
+  import { goto } from "$app/navigation";
 
   let collection = "spj";
   onMount(() => {
     list.get(collection, { filter: { pemakaian_id: "null" } });
   });
+
+  function onChoose(data) {
+    obj.set("pilih-spj", data);
+    goto("./");
+  }
 
   //   $: console.log("List of ", collection, $list?.[collection]);
 </script>
@@ -20,7 +26,7 @@
       <ul>
         {#each $list?.[collection]?.data as d}
           <li>
-            <button class="overlay" />
+            <button class="overlay" on:click={() => onChoose(d)} />
             <h3>No : {d?.no_spj}</h3>
             <div>{d?.keperluan} ({d?.tujuan})</div>
           </li>
@@ -47,6 +53,8 @@
   button.overlay {
     position: absolute;
     inset: 0;
-    /* background: yellow; */
+    background: transparent;
+    height: 100%;
+    border: none;
   }
 </style>

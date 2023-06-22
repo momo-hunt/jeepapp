@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { list } from "$lib/stores";
+  import { list, obj } from "$lib/stores";
   import { goto } from "$app/navigation";
   import CoForm from "$lib/component/Co-Form.svelte";
   import ApField from "./Ap-Field.svelte";
@@ -19,8 +19,12 @@
 
   $: loading = $list?.[collection]?.loading;
   $: data = $list?.[collection]?.data
-    ? { ...defaultData, ...$list?.[collection]?.data[0] }
-    : defaultData;
+    ? {
+        ...$obj?.["pilih-spj"],
+        ...defaultData,
+        ...$list?.[collection]?.data[0],
+      }
+    : { ...$obj?.["pilih-spj"], ...defaultData };
 
   function onProcess() {
     goto("./");
@@ -31,8 +35,10 @@
   }
 
   onMount(() => {
-    // list.get(collection);
+    list.get(collection);
   });
+
+  $: console.log(data);
 </script>
 
 <CoLoader {loading}>Tunggu ya...</CoLoader>

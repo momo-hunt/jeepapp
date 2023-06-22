@@ -2,16 +2,23 @@
   export let data = {};
 
   let km = {
-    awal: data?.["km_terakhir"],
+    awal: data?.["km_terakhir"] ?? 0,
     akhir: null,
   };
 
   // $: console.log("data field", data);
 
-  $: pemakaian = km.akhir - km.awal;
+  $: pemakaian = km.akhir ? km.akhir - km.awal : 0;
 </script>
 
 <div class="form">
+  <input type="hidden" name="spj_id" value={data?.["id"] ?? ""} />
+
+  <article>
+    <label for="no_spj"> No SPJ </label>
+    <input type="text" value={data?.["no_spj"] ?? ""} readonly />
+  </article>
+
   <article>
     <label for="sopir_id">Sopir</label>
     <select
